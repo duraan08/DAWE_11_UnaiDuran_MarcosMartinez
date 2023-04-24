@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Customer Management System</title>
+        <script src="javascripts/main.js"></script>
+    </head>
+    <body>
+        <h1><Insertar cliente></h1>
+
+        <ul>
+            <% if (errors) { %>
+            <% errors.forEach( function(error){  %>
+                <li><%=error.msg %></li>
+            <% }) %>
+            <% } %>
+        </ul>
+
+        <h1>Hello <%=email%></h1>
+
+        <form method="POST" action="/users/add" id="form">
+            <label>Nombre</label>
+            <input type="text" name="first_name">
+            <br>
+            <label>Apellido</label>
+            <input type="text" name="last_name">
+            <br>
+            <label>Email</label>
+            <input type="text" name="email">
+            <br>
+            <input type="submit" Value="Enviar" name="submit">
+        </form>
+
+        <h1><%=title %></h1>
+        <ul>
+            <% users.forEach(function(user) { %>
+                    <li>
+                    	<%=user.first_name %> <%= user.last_name%> -
+                    	<a href="#" class="deleteUser" data-id="<%= user._id %>">Delete</a> -
+                    	<a href="#" class="editUser" data-id="<%= user._id %>">Edit</a>
+                    </li>
+            <% }) %>
+        </ul>
+        <a href = "/logout">Logout</a>
+    </body>
+</html>
+
